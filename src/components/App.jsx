@@ -1,4 +1,5 @@
 import React from "react";
+import ToDoItem from "./ToDoItem"
 
 function App() {
 
@@ -30,11 +31,11 @@ function App() {
           <span>Add</span>
         </button>
       </div>
-      <div>
+      <div>      
         <ul>
-          {items.map(todoItem => {
-            return <li>{todoItem}</li>
-          })}
+          {items.map(todoItem => (
+            <ToDoItem text= {todoItem} />
+            ))}
         </ul>
       </div>
     </div>
@@ -42,6 +43,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
