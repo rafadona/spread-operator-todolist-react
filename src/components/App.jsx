@@ -20,6 +20,15 @@ function App() {
     setNewText("");
   }
 
+  function deleteItem(id){
+    setItems(prevItems =>{
+      return prevItems.filter((item,index)=>{
+        return index !== id;
+      })
+    })
+
+  }
+
   return (
     <div className="container">
       <div className="heading">
@@ -33,8 +42,8 @@ function App() {
       </div>
       <div>      
         <ul>
-          {items.map(todoItem => (
-            <ToDoItem text= {todoItem} />
+          {items.map((todoItem, index) => (
+            <ToDoItem key={index} id={index} text= {todoItem} clicado={deleteItem}/>
             ))}
         </ul>
       </div>
@@ -43,12 +52,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
-//CHALLENGE: Make this app work by applying what you've learnt.
-//1. When new text is written into the input, its state should be saved.
-//2. When the add button is pressed, the current data in the input should be
-//added to an array.
-//3. The <ul> should display all the array items as <li>s
